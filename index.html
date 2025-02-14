@@ -319,6 +319,10 @@
             z-index: -1;
          }
 
+         .mobile-title {
+            display: none;
+         }
+
          @media (max-width: 1024px) {
             .main-container {
                flex-direction: column;
@@ -345,14 +349,14 @@
             }
 
             .buttons {
-               flex-wrap: wrap;
+               gap: 10px;
                justify-content: center;
                max-width: 600px;
             }
 
             .button-link {
-               width: 150px;
-               height: 42px;
+               width: 140px;
+               height: 40px;
             }
 
             .header-image {
@@ -370,9 +374,17 @@
          }
 
          @media (max-width: 480px) {
+            .buttons {
+               gap: 5px;
+               flex-wrap: nowrap;
+               width: 100%;
+               padding: 0 10px;
+            }
+
             .button-link {
-               width: 120px;
-               height: 35px;
+               width: 80px;
+               height: 30px;
+               min-width: 0;
             }
 
             #chat-container {
@@ -386,12 +398,37 @@
             .footer-title {
                font-size: 28px;
             }
+
+            .header-bg {
+               display: none;
+            }
+
+            .main-container {
+               margin-top: 20px;
+            }
+
+            .left-column {
+               margin-top: 0;
+            }
+
+            .mobile-title {
+               display: block;
+               font-size: 48px;
+               font-weight: bold;
+               color: #57b7ff;
+               text-shadow: 0 0 10px rgba(87, 183, 255, 0.5);
+               text-align: center;
+               margin-bottom: 30px;
+               margin-top: 20px;
+               z-index: 1;
+            }
          }
       </style>
    </head>
    <body>
       <div class="header-bg"></div>
       <div class="footer-bg"></div>
+      <h1 class="mobile-title">ROSEAI</h1>
       <div class="main-container">
          <div class="left-column">
             <div class="buttons">
