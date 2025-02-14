@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROSEAI</title>
+    <style>
+        @font-face {
+            font-family: 'Orbitron';
+            src: url('assets/Orbitron-VariableFont_wght.ttf') format('truetype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('assets/background.png');
+            background-position: center;
+            background-repeat: repeat;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        .header {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            color: #57b7ff;
+            text-shadow: 0 0 10px rgba(87, 183, 255, 0.5);
+        }
+
+        .header-image {
+            width: 300px;
+            height: auto;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .button-link {
+            width: 150px;
+            height: 40px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .button-link:hover {
+            transform: scale(1.05);
+        }
+
+        .button-link img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #chat-container {
+            width: 800px;
+            height: 450px;
+            background: rgba(35, 105, 170, 0.3);
+            border-radius: 15px;
+            padding: 10px;
+            border: 2px solid #57b7ff;
+            box-shadow: 0 0 20px rgba(87, 183, 255, 0.3);
+        }
+
+        .contract-line {
+            width: 100%;
+            max-width: 800px;
+            margin: 40px 0;
+        }
+
+        .footer-title {
+            font-size: 36px;
+            color: #57b7ff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(87, 183, 255, 0.5);
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: #57b7ff;
+            max-width: 800px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        #messages {
+            background: rgba(35, 105, 170, 0.2);
+            border-radius: 10px;
+        }
+
+        .bot-text, .user-text {
+            background: rgba(87, 183, 255, 0.2);
+            color: white;
+        }
+
+        #input-container {
+            background: rgba(87, 183, 255, 0.2);
+        }
+
+        #user-input {
+            background: rgba(35, 105, 170, 0.5);
+        }
+
+        #send-btn {
+            background: #57b7ff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">ROSEAI</h1>
+        <img src="assets/web_1.gif" alt="AI Animation" class="header-image">
+    </div>
+
+    <div class="buttons">
+        <a href="https://telegram.org" target="_blank" class="button-link">
+            <img src="assets/button_4.png" alt="Telegram">
+        </a>
+        <a href="https://dexscreener.com" target="_blank" class="button-link">
+            <img src="assets/button_3.png" alt="DexScreener">
+        </a>
+        <a href="https://dextools.io" target="_blank" class="button-link">
+            <img src="assets/button_2.png" alt="DexTools">
+        </a>
+        <a href="https://x.com" target="_blank" class="button-link">
+            <img src="assets/button_1.png" alt="X.com">
+        </a>
+    </div>
+
+    <div id="chat-container">
+        <div id="messages"></div>
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Enter your message">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <img src="assets/contract.png" alt="Contract Line" class="contract-line">
+    
+    <h2 class="footer-title">ROSEAI</h2>
+    <p class="footer-text">texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+
+    <script>
+        // ... Paste the entire script section from index_.html here ...
+    </script>
+</body>
+</html> 
