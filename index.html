@@ -327,37 +327,67 @@
             container.className = 'binary-rain';
             document.body.appendChild(container);
 
+            // Разделим экран на сектора
+            const COLS = 20; // количество колонок
+            const ROWS = 15; // количество строк
+            const sectors = new Array(COLS * ROWS).fill(false); // false = сектор свободен
+
+            function getSectorPosition(sectorIndex) {
+                const col = sectorIndex % COLS;
+                const row = Math.floor(sectorIndex / COLS);
+                return {
+                    left: (col * (100 / COLS)),
+                    top: (row * (100 / ROWS))
+                };
+            }
+
+            function getFreeSector() {
+                const freeSectors = sectors
+                    .map((occupied, index) => ({ occupied, index }))
+                    .filter(sector => !sector.occupied)
+                    .map(sector => sector.index);
+                
+                if (freeSectors.length === 0) return null;
+                
+                return freeSectors[Math.floor(Math.random() * freeSectors.length)];
+            }
+
             function createDigit() {
+                const sectorIndex = getFreeSector();
+                if (sectorIndex === null) return;
+
+                sectors[sectorIndex] = true; // помечаем сектор как занятый
+                const position = getSectorPosition(sectorIndex);
+
                 const digit = document.createElement('div');
                 digit.className = 'binary-digit';
                 digit.textContent = Math.random() < 0.5 ? '0' : '1';
-                digit.style.left = `${Math.random() * 100}%`;
                 
-                // Случайная скорость, но в более узком диапазоне
+                // Добавляем небольшой рандом внутри сектора
+                const offsetX = Math.random() * (100 / COLS) * 0.5;
+                const offsetY = Math.random() * (100 / ROWS) * 0.5;
+                
+                digit.style.left = `${position.left + offsetX}%`;
+                digit.style.top = `${position.top + offsetY}%`;
+                
                 const duration = 7 + Math.random() * 5;
                 digit.style.animation = `floatUp ${duration}s linear`;
-                
-                // Случайная начальная позиция по вертикали
-                digit.style.top = `${Math.random() * 100}%`;
                 
                 container.appendChild(digit);
 
                 digit.addEventListener('animationend', () => {
+                    sectors[sectorIndex] = false; // освобождаем сектор
                     container.removeChild(digit);
                 });
             }
 
-            // Создаем больше начальных цифр
-            for(let i = 0; i < 100; i++) {
+            // Создаем начальные цифры
+            for(let i = 0; i < 150; i++) {
                 setTimeout(createDigit, Math.random() * 2000);
             }
 
-            // Чаще создаем новые цифры
-            setInterval(() => {
-                if(container.childNodes.length < 100) {
-                    createDigit();
-                }
-            }, 100);
+            // Продолжаем создавать новые цифры
+            setInterval(createDigit, 100);
         }
 
         window.addEventListener('load', createBinaryRain);
