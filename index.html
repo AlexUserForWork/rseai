@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROSEAI</title>
-    <style>
-        @font-face {
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>ROSEAI</title>
+      <style>
+         @font-face {
             font-family: 'Orbitron';
             src: url('assets/Orbitron-VariableFont_wght.ttf') format('truetype');
-        }
+         }
 
-        * {
+         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Orbitron', sans-serif;
-        }
+         }
 
-        body {
+         body {
             margin: 0;
             padding: 0;
             background: #000000;
@@ -28,9 +28,9 @@
             align-items: center;
             position: relative;
             overflow-x: hidden;
-        }
+         }
 
-        .main-container {
+         .main-container {
             width: 100%;
             max-width: 1400px;
             display: flex;
@@ -38,20 +38,20 @@
             align-items: flex-start;
             padding: 20px;
             margin-top: 20px;
-        }
+         }
 
-        .left-column {
+         .left-column {
             width: 60%;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-        }
+         }
 
-        .right-column {
+         .right-column {
             width: 35%;
-        }
+         }
 
-        .title {
+         .title {
             font-size: 64px;
             font-weight: bold;
             color: #57b7ff;
@@ -59,9 +59,9 @@
             margin-bottom: 40px;
             animation: titleGlow 3s infinite;
             position: relative;
-        }
+         }
 
-        .title::after {
+         .title::after {
             content: 'ROSEAI';
             position: absolute;
             left: 0;
@@ -70,75 +70,75 @@
             -webkit-text-stroke: 1px rgba(87, 183, 255, 0.3);
             animation: titleWave 8s linear infinite;
             z-index: -1;
-        }
+         }
 
-        @keyframes titleGlow {
+         @keyframes titleGlow {
             0% {
-                text-shadow: 0 0 10px rgba(87, 183, 255, 0.5);
+               text-shadow: 0 0 10px rgba(87, 183, 255, 0.5);
             }
             50% {
-                text-shadow: 0 0 20px rgba(87, 183, 255, 0.8),
-                             0 0 30px rgba(87, 183, 255, 0.6),
-                             0 0 40px rgba(87, 183, 255, 0.4);
+               text-shadow: 0 0 20px rgba(87, 183, 255, 0.8),
+                  0 0 30px rgba(87, 183, 255, 0.6),
+                  0 0 40px rgba(87, 183, 255, 0.4);
             }
             100% {
-                text-shadow: 0 0 10px rgba(87, 183, 255, 0.5);
+               text-shadow: 0 0 10px rgba(87, 183, 255, 0.5);
             }
-        }
+         }
 
-        @keyframes titleWave {
+         @keyframes titleWave {
             0% {
-                transform: translateY(0) translateX(0);
-                opacity: 0.3;
+               transform: translateY(0) translateX(0);
+               opacity: 0.3;
             }
             25% {
-                transform: translateY(-2px) translateX(2px);
-                opacity: 0.5;
+               transform: translateY(-2px) translateX(2px);
+               opacity: 0.5;
             }
             50% {
-                transform: translateY(0) translateX(0);
-                opacity: 0.3;
+               transform: translateY(0) translateX(0);
+               opacity: 0.3;
             }
             75% {
-                transform: translateY(2px) translateX(-2px);
-                opacity: 0.5;
+               transform: translateY(2px) translateX(-2px);
+               opacity: 0.5;
             }
             100% {
-                transform: translateY(0) translateX(0);
-                opacity: 0.3;
+               transform: translateY(0) translateX(0);
+               opacity: 0.3;
             }
-        }
+         }
 
-        .header-image {
+         .header-image {
             width: 100%;
             height: auto;
             max-width: 400px;
-        }
+         }
 
-        .buttons {
+         .buttons {
             display: flex;
             gap: 15px;
             margin: 30px 0;
-        }
+         }
 
-        .button-link {
+         .button-link {
             width: 180px;
             height: 50px;
             cursor: pointer;
             transition: transform 0.2s;
-        }
+         }
 
-        .button-link:hover {
+         .button-link:hover {
             transform: scale(1.05);
-        }
+         }
 
-        .button-link img {
+         .button-link img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-        }
+         }
 
-        #chat-container {
+         #chat-container {
             width: 800px;
             height: 450px;
             background: linear-gradient(to top, #0a1b31, #1e4976);
@@ -150,50 +150,50 @@
             flex-direction: column;
             justify-content: space-between;
             z-index: 10;
-        }
+         }
 
-        #messages {
+         #messages {
             flex-grow: 1;
             padding: 10px;
             overflow-y: auto;
             background: rgba(0, 0, 0, 0.4);
             border-radius: 10px;
-        }
+         }
 
-        #messages::-webkit-scrollbar {
+         #messages::-webkit-scrollbar {
             width: 10px;
-        }
+         }
 
-        #messages::-webkit-scrollbar-track {
+         #messages::-webkit-scrollbar-track {
             background: #57b7ff;
             border-radius: 10px;
-        }
+         }
 
-        #messages::-webkit-scrollbar-thumb {
+         #messages::-webkit-scrollbar-thumb {
             background: #2369aa;
             border-radius: 10px;
             border: 2px solid #57b7ff;
-        }
+         }
 
-        #messages::-webkit-scrollbar-thumb:hover {
+         #messages::-webkit-scrollbar-thumb:hover {
             background: #1c5a90;
-        }
+         }
 
-        .message {
+         .message {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
-        }
+         }
 
-        .user {
+         .user {
             justify-content: flex-end;
-        }
+         }
 
-        .bot {
+         .bot {
             justify-content: flex-start;
-        }
+         }
 
-        .avatar {
+         .avatar {
             width: 35px;
             height: 35px;
             border-radius: 50%;
@@ -202,50 +202,50 @@
             justify-content: center;
             font-weight: bold;
             font-size: 18px;
-        }
+         }
 
-        .bot-avatar {
+         .bot-avatar {
             background: url('./assets/logo.png') no-repeat center / cover;
             margin-right: 10px;
             border-radius: 50%;
             width: 40px;
             color: white;
             border: 2px solid white;
-        }
+         }
 
-        .user-avatar {
+         .user-avatar {
             background: white;
             color: black;
             border: 2px solid black;
             margin-left: 10px;
-        }
+         }
 
-        .text {
+         .text {
             padding: 8px;
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.6);
-        }
+         }
 
-        .bot-text {
+         .bot-text {
             background-color: rgba(0, 0, 0, 0.3);
             color: white;
-        }
+         }
 
-        .user-text {
+         .user-text {
             background-color: rgba(0, 0, 0, 0.3);
             color: white;
             border-color: rgba(0, 0, 0, 0.6);
-        }
+         }
 
-        #input-container {
+         #input-container {
             display: flex;
             padding: 10px;
             background-color: rgba(0, 0, 0, 0.4);
             border-radius: 10px;
             margin-top: 10px;
-        }
+         }
 
-        #user-input {
+         #user-input {
             flex-grow: 1;
             padding: 10px;
             border: none;
@@ -253,9 +253,9 @@
             background-color: #0a1b31;
             color: white;
             outline: none;
-        }
+         }
 
-        #send-btn {
+         #send-btn {
             background: linear-gradient(to bottom, #57b7ff, #2369aa);
             border: none;
             padding: 10px 15px;
@@ -264,26 +264,26 @@
             cursor: pointer;
             color: white;
             box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
+         }
 
-        #send-btn:hover {
+         #send-btn:hover {
             opacity: 0.8;
-        }
+         }
 
-        .contract-line {
+         .contract-line {
             width: 100%;
             max-width: 1400px;
             margin: 40px 0;
-        }
+         }
 
-        .footer-title {
+         .footer-title {
             font-size: 36px;
             color: #57b7ff;
             margin-bottom: 20px;
             text-shadow: 0 0 10px rgba(87, 183, 255, 0.5);
-        }
+         }
 
-        .footer-text {
+         .footer-text {
             font-size: 14px;
             color: #57b7ff;
             width: 100%;
@@ -293,27 +293,27 @@
             padding: 0 20px;
             word-wrap: break-word;
             overflow-wrap: break-word;
-        }
+         }
 
-        /* Добавляем анимацию цифр */
-        @keyframes floatUp {
+         /* Добавляем анимацию цифр */
+         @keyframes floatUp {
             0% {
-                transform: translateY(120vh);
-                opacity: 0;
+               transform: translateY(120vh);
+               opacity: 0;
             }
             10% {
-                opacity: 0.4;
+               opacity: 0.4;
             }
             90% {
-                opacity: 0.4;
+               opacity: 0.4;
             }
             100% {
-                transform: translateY(-20vh);
-                opacity: 0;
+               transform: translateY(-20vh);
+               opacity: 0;
             }
-        }
+         }
 
-        .binary-rain {
+         .binary-rain {
             position: fixed;
             top: 0;
             left: 0;
@@ -321,126 +321,292 @@
             height: 100%;
             pointer-events: none;
             z-index: -1;
-        }
+         }
 
-        .binary-digit {
+         .binary-digit {
             position: absolute;
             color: #57b7ff;
             font-size: 24px;
             opacity: 0;
             text-shadow: 0 0 8px rgba(87, 183, 255, 0.8);
-        }
-    </style>
-</head>
-<body>
-    <div class="main-container">
-        <div class="left-column">
+         }
+      </style>
+   </head>
+   <body>
+      <div class="main-container">
+         <div class="left-column">
             <h1 class="title">ROSEAI</h1>
-            
+
             <div class="buttons">
-                <a href="https://telegram.org" target="_blank" class="button-link">
-                    <img src="assets/button_4.png" alt="Telegram">
-                </a>
-                <a href="https://dexscreener.com" target="_blank" class="button-link">
-                    <img src="assets/button_3.png" alt="DexScreener">
-                </a>
-                <a href="https://dextools.io" target="_blank" class="button-link">
-                    <img src="assets/button_2.png" alt="DexTools">
-                </a>
-                <a href="https://x.com" target="_blank" class="button-link">
-                    <img src="assets/button_1.png" alt="X.com">
-                </a>
+               <a
+                  href="https://telegram.org"
+                  target="_blank"
+                  class="button-link"
+               >
+                  <img src="assets/button_4.png" alt="Telegram" />
+               </a>
+               <a
+                  href="https://dexscreener.com"
+                  target="_blank"
+                  class="button-link"
+               >
+                  <img src="assets/button_3.png" alt="DexScreener" />
+               </a>
+               <a
+                  href="https://dextools.io"
+                  target="_blank"
+                  class="button-link"
+               >
+                  <img src="assets/button_2.png" alt="DexTools" />
+               </a>
+               <a href="https://x.com" target="_blank" class="button-link">
+                  <img src="assets/button_1.png" alt="X.com" />
+               </a>
             </div>
 
             <div id="chat-container">
-                <div id="messages"></div>
-                <div id="input-container">
-                    <input type="text" id="user-input" placeholder="Enter your message">
-                    <button id="send-btn">Send</button>
-                </div>
+               <div id="messages"></div>
+               <div id="input-container">
+                  <input
+                     type="text"
+                     id="user-input"
+                     placeholder="Enter your message"
+                  />
+                  <button id="send-btn" onclick="sendMessage()">Send</button>
+               </div>
             </div>
-        </div>
+         </div>
 
-        <div class="right-column">
-            <img src="assets/web_1.gif" alt="AI Animation" class="header-image">
-        </div>
-    </div>
+         <div class="right-column">
+            <img
+               src="assets/web_1.gif"
+               alt="AI Animation"
+               class="header-image"
+            />
+         </div>
+      </div>
 
-    <img src="assets/contract.png" alt="Contract Line" class="contract-line">
-    
-    <h2 class="footer-title">ROSEAI</h2>
-    <p class="footer-text">texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+      <img
+         src="assets/contract.png"
+         alt="Contract Line"
+         class="contract-line"
+      />
 
-    <script>
-        function createBinaryRain() {
+      <h2 class="footer-title">ROSEAI</h2>
+      <p class="footer-text">
+         texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+      </p>
+
+      <script>
+         function createBinaryRain() {
             const container = document.createElement('div');
             container.className = 'binary-rain';
             document.body.appendChild(container);
 
-            // Разделим экран на сектора
-            const COLS = 20; // количество колонок
-            const ROWS = 15; // количество строк
-            const sectors = new Array(COLS * ROWS).fill(false); // false = сектор свободен
+            const COLS = 20;
+            const ROWS = 15;
+            const sectors = new Array(COLS * ROWS).fill(false);
 
             function getSectorPosition(sectorIndex) {
-                const col = sectorIndex % COLS;
-                const row = Math.floor(sectorIndex / COLS);
-                return {
-                    left: (col * (100 / COLS)),
-                    top: (row * (100 / ROWS))
-                };
+               const col = sectorIndex % COLS;
+               const row = Math.floor(sectorIndex / COLS);
+               return {
+                  left: col * (100 / COLS),
+                  top: row * (100 / ROWS)
+               };
             }
 
             function getFreeSector() {
-                const freeSectors = sectors
-                    .map((occupied, index) => ({ occupied, index }))
-                    .filter(sector => !sector.occupied)
-                    .map(sector => sector.index);
-                
-                if (freeSectors.length === 0) return null;
-                
-                return freeSectors[Math.floor(Math.random() * freeSectors.length)];
+               const freeSectors = sectors
+                  .map((occupied, index) => ({ occupied, index }))
+                  .filter((sector) => !sector.occupied)
+                  .map((sector) => sector.index);
+
+               if (freeSectors.length === 0) return null;
+
+               return freeSectors[
+                  Math.floor(Math.random() * freeSectors.length)
+               ];
             }
 
             function createDigit() {
-                const sectorIndex = getFreeSector();
-                if (sectorIndex === null) return;
+               const sectorIndex = getFreeSector();
+               if (sectorIndex === null) return;
 
-                sectors[sectorIndex] = true; // помечаем сектор как занятый
-                const position = getSectorPosition(sectorIndex);
+               sectors[sectorIndex] = true;
+               const position = getSectorPosition(sectorIndex);
 
-                const digit = document.createElement('div');
-                digit.className = 'binary-digit';
-                digit.textContent = Math.random() < 0.5 ? '0' : '1';
-                
-                // Добавляем небольшой рандом внутри сектора
-                const offsetX = Math.random() * (100 / COLS) * 0.5;
-                const offsetY = Math.random() * (100 / ROWS) * 0.5;
-                
-                digit.style.left = `${position.left + offsetX}%`;
-                digit.style.top = `${position.top + offsetY}%`;
-                
-                const duration = 7 + Math.random() * 5;
-                digit.style.animation = `floatUp ${duration}s linear`;
-                
-                container.appendChild(digit);
+               const digit = document.createElement('div');
+               digit.className = 'binary-digit';
+               digit.textContent = Math.random() < 0.5 ? '0' : '1';
 
-                digit.addEventListener('animationend', () => {
-                    sectors[sectorIndex] = false; // освобождаем сектор
-                    container.removeChild(digit);
-                });
+               const offsetX = Math.random() * (100 / COLS) * 0.5;
+               const offsetY = Math.random() * (100 / ROWS) * 0.5;
+
+               digit.style.left = `${position.left + offsetX}%`;
+               digit.style.top = `${position.top + offsetY}%`;
+
+               const duration = 7 + Math.random() * 5;
+               digit.style.animation = `floatUp ${duration}s linear`;
+
+               container.appendChild(digit);
+
+               digit.addEventListener('animationend', () => {
+                  sectors[sectorIndex] = false;
+                  container.removeChild(digit);
+               });
             }
 
-            // Создаем начальные цифры
-            for(let i = 0; i < 150; i++) {
-                setTimeout(createDigit, Math.random() * 2000);
+            for (let i = 0; i < 150; i++) {
+               setTimeout(createDigit, Math.random() * 2000);
             }
 
-            // Продолжаем создавать новые цифры
             setInterval(createDigit, 100);
-        }
+         }
 
-        window.addEventListener('load', createBinaryRain);
-    </script>
-</body>
-</html> 
+         window.addEventListener('load', createBinaryRain);
+      </script>
+
+      <script>
+         document
+            .getElementById('user-input')
+            .addEventListener('keypress', function (event) {
+               if (event.key === 'Enter') {
+                  sendMessage();
+               }
+            });
+
+         let chatHistory =
+            JSON.parse(sessionStorage.getItem('chatHistory')) || [];
+
+         const saveChatHistory = (newHistory) => {
+            sessionStorage.setItem('chatHistory', JSON.stringify(newHistory));
+         };
+
+         const scrollToBottom = () => {
+            const messagesDiv = document.getElementById('messages');
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+         };
+
+         async function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+            if (!userInput.trim()) return;
+
+            const messagesDiv = document.getElementById('messages');
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user';
+
+            const userAvatar = document.createElement('div');
+            userAvatar.className = 'avatar user-avatar';
+            userAvatar.textContent = 'U';
+
+            const userText = document.createElement('div');
+            userText.className = 'text user-text';
+            userText.textContent = userInput;
+
+            userMessage.appendChild(userText);
+            userMessage.appendChild(userAvatar);
+            messagesDiv.appendChild(userMessage);
+
+            document.getElementById('user-input').value = '';
+
+            chatHistory.push({ message: userInput, isUser: true });
+            saveChatHistory(chatHistory);
+
+            const botTypingMessage = document.createElement('div');
+            botTypingMessage.className = 'message bot';
+            botTypingMessage.innerHTML =
+               '<div class="text bot-text">Rose is typing...</div>';
+            messagesDiv.appendChild(botTypingMessage);
+
+            scrollToBottom();
+
+            try {
+               const backendUrl =
+                  'https://aichat-backend-79ip.onrender.com/chat';
+               const response = await fetch(backendUrl, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                     messages: chatHistory.slice(-10)
+                  })
+               });
+
+               if (!response.ok)
+                  throw new Error(`Server error: ${response.status}`);
+
+               const data = await response.json();
+
+               messagesDiv.removeChild(botTypingMessage);
+               const botMessage = document.createElement('div');
+               botMessage.className = 'message bot';
+
+               const botAvatar = document.createElement('div');
+               botAvatar.className = 'avatar bot-avatar';
+
+               const botText = document.createElement('div');
+               botText.className = 'text bot-text';
+               botText.textContent = data.reply || 'No answer';
+
+               botMessage.appendChild(botAvatar);
+               botMessage.appendChild(botText);
+               messagesDiv.appendChild(botMessage);
+
+               chatHistory.push({
+                  message: data.reply,
+                  isUser: false
+               });
+               saveChatHistory(chatHistory);
+            } catch (error) {
+               const errorMessage = document.createElement('div');
+               errorMessage.className = 'message bot';
+               errorMessage.innerHTML =
+                  '<div class="text bot-text">Error sending</div>';
+               messagesDiv.appendChild(errorMessage);
+               console.error('Error:', error);
+            }
+
+            scrollToBottom();
+         }
+
+         const initialMessages = chatHistory.map((entry) => {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+
+            if (entry.isUser) {
+               messageDiv.classList.add('user');
+
+               const userAvatar = document.createElement('div');
+               userAvatar.className = 'avatar user-avatar';
+               userAvatar.textContent = 'U';
+
+               const userText = document.createElement('div');
+               userText.className = 'text user-text';
+               userText.textContent = entry.message;
+
+               messageDiv.appendChild(userText);
+               messageDiv.appendChild(userAvatar);
+            } else {
+               messageDiv.classList.add('bot');
+
+               const botAvatar = document.createElement('div');
+               botAvatar.className = 'avatar bot-avatar';
+
+               const botText = document.createElement('div');
+               botText.className = 'text bot-text';
+               botText.textContent = entry.message;
+
+               messageDiv.appendChild(botAvatar);
+               messageDiv.appendChild(botText);
+            }
+
+            return messageDiv;
+         });
+
+         const messagesDiv = document.getElementById('messages');
+         initialMessages.forEach((msg) => messagesDiv.appendChild(msg));
+
+         scrollToBottom();
+      </script>
+   </body>
+</html>
