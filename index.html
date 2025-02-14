@@ -47,68 +47,11 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            margin-top: 100px;
          }
 
          .right-column {
             width: 35%;
-         }
-
-         .title {
-            font-size: 64px;
-            font-weight: bold;
-            color: #57b7ff;
-            text-shadow: 0 0 10px rgba(87, 183, 255, 0.5);
-            margin-bottom: 40px;
-            animation: titleGlow 3s infinite;
-            position: relative;
-         }
-
-         .title::after {
-            content: 'ROSEAI';
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: transparent;
-            -webkit-text-stroke: 1px rgba(87, 183, 255, 0.3);
-            animation: titleWave 8s linear infinite;
-            z-index: -1;
-         }
-
-         @keyframes titleGlow {
-            0% {
-               text-shadow: 0 0 10px rgba(87, 183, 255, 0.5);
-            }
-            50% {
-               text-shadow: 0 0 20px rgba(87, 183, 255, 0.8),
-                  0 0 30px rgba(87, 183, 255, 0.6),
-                  0 0 40px rgba(87, 183, 255, 0.4);
-            }
-            100% {
-               text-shadow: 0 0 10px rgba(87, 183, 255, 0.5);
-            }
-         }
-
-         @keyframes titleWave {
-            0% {
-               transform: translateY(0) translateX(0);
-               opacity: 0.3;
-            }
-            25% {
-               transform: translateY(-2px) translateX(2px);
-               opacity: 0.5;
-            }
-            50% {
-               transform: translateY(0) translateX(0);
-               opacity: 0.3;
-            }
-            75% {
-               transform: translateY(2px) translateX(-2px);
-               opacity: 0.5;
-            }
-            100% {
-               transform: translateY(0) translateX(0);
-               opacity: 0.3;
-            }
          }
 
          .header-image {
@@ -152,6 +95,7 @@
             flex-direction: column;
             justify-content: space-between;
             z-index: 10;
+            margin-top: 0;
          }
 
          #messages {
@@ -381,8 +325,6 @@
       <div class="footer-bg"></div>
       <div class="main-container">
          <div class="left-column">
-            <h1 class="title">ROSEAI</h1>
-
             <div class="buttons">
                <a
                   href="https://telegram.org"
