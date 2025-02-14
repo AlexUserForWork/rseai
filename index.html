@@ -20,9 +20,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: url('assets/background.png');
-            background-position: center;
-            background-repeat: repeat;
+            background: #000000;
             color: white;
             min-height: 100vh;
             display: flex;
@@ -30,17 +28,6 @@
             align-items: center;
             position: relative;
             overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: -1;
         }
 
         .main-container {
@@ -257,6 +244,42 @@
             word-wrap: break-word;
             overflow-wrap: break-word;
         }
+
+        /* Добавляем анимацию цифр */
+        @keyframes floatUp {
+            0% {
+                transform: translateY(120vh);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.4;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-20vh);
+                opacity: 0;
+            }
+        }
+
+        .binary-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .binary-digit {
+            position: absolute;
+            color: #57b7ff;
+            font-size: 24px;
+            opacity: 0;
+            text-shadow: 0 0 8px rgba(87, 183, 255, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -299,7 +322,45 @@
     <p class="footer-text">texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
 
     <script>
-        // ... Paste the entire script section from index_.html here ...
+        function createBinaryRain() {
+            const container = document.createElement('div');
+            container.className = 'binary-rain';
+            document.body.appendChild(container);
+
+            function createDigit() {
+                const digit = document.createElement('div');
+                digit.className = 'binary-digit';
+                digit.textContent = Math.random() < 0.5 ? '0' : '1';
+                digit.style.left = `${Math.random() * 100}%`;
+                
+                // Случайная скорость, но в более узком диапазоне
+                const duration = 7 + Math.random() * 5;
+                digit.style.animation = `floatUp ${duration}s linear`;
+                
+                // Случайная начальная позиция по вертикали
+                digit.style.top = `${Math.random() * 100}%`;
+                
+                container.appendChild(digit);
+
+                digit.addEventListener('animationend', () => {
+                    container.removeChild(digit);
+                });
+            }
+
+            // Создаем больше начальных цифр
+            for(let i = 0; i < 100; i++) {
+                setTimeout(createDigit, Math.random() * 2000);
+            }
+
+            // Чаще создаем новые цифры
+            setInterval(() => {
+                if(container.childNodes.length < 100) {
+                    createDigit();
+                }
+            }, 100);
+        }
+
+        window.addEventListener('load', createBinaryRain);
     </script>
 </body>
 </html> 
