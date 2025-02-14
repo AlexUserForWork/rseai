@@ -58,6 +58,21 @@
             width: 100%;
             height: auto;
             max-width: 400px;
+            filter: drop-shadow(0 0 10px rgba(87, 183, 255, 0.3));
+            animation: imageGlow 3s ease-in-out infinite;
+         }
+
+         @keyframes imageGlow {
+            0% {
+               filter: drop-shadow(0 0 10px rgba(87, 183, 255, 0.3));
+            }
+            50% {
+               filter: drop-shadow(0 0 20px rgba(87, 183, 255, 0.6))
+                  drop-shadow(0 0 30px rgba(87, 183, 255, 0.4));
+            }
+            100% {
+               filter: drop-shadow(0 0 10px rgba(87, 183, 255, 0.3));
+            }
          }
 
          .buttons {
@@ -573,7 +588,7 @@
 
       <h2 class="footer-title">ROSEAI</h2>
       <p class="footer-text">
-         texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+         texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
       </p>
 
       <script>
