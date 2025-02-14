@@ -43,37 +43,50 @@
             z-index: -1;
         }
 
-        .header {
+        .main-container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1400px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             padding: 20px;
             margin-top: 20px;
         }
 
+        .left-column {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .right-column {
+            width: 35%;
+        }
+
         .title {
-            font-size: 48px;
+            font-size: 64px;
             font-weight: bold;
             color: #57b7ff;
             text-shadow: 0 0 10px rgba(87, 183, 255, 0.5);
+            margin-bottom: 40px;
         }
 
         .header-image {
-            width: 300px;
+            width: 100%;
             height: auto;
+            max-width: 400px;
         }
 
         .buttons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             margin: 30px 0;
         }
 
         .button-link {
-            width: 150px;
-            height: 40px;
+            width: 120px;
+            height: 35px;
             cursor: pointer;
             transition: transform 0.2s;
         }
@@ -91,11 +104,133 @@
         #chat-container {
             width: 800px;
             height: 450px;
-            background: rgba(35, 105, 170, 0.3);
+            background: linear-gradient(to top, #2369aa, #57b7ff);
             border-radius: 15px;
             padding: 10px;
             border: 2px solid #57b7ff;
             box-shadow: 0 0 20px rgba(87, 183, 255, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        #messages {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        #messages::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        #messages::-webkit-scrollbar-track {
+            background: #57b7ff;
+            border-radius: 10px;
+        }
+
+        #messages::-webkit-scrollbar-thumb {
+            background: #2369aa;
+            border-radius: 10px;
+            border: 2px solid #57b7ff;
+        }
+
+        #messages::-webkit-scrollbar-thumb:hover {
+            background: #1c5a90;
+        }
+
+        .message {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .user {
+            justify-content: flex-end;
+        }
+
+        .bot {
+            justify-content: flex-start;
+        }
+
+        .avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .bot-avatar {
+            background: url('./assets/logo.png') no-repeat center / cover;
+            margin-right: 10px;
+            border-radius: 50%;
+            width: 40px;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .user-avatar {
+            background: white;
+            color: black;
+            border: 2px solid black;
+            margin-left: 10px;
+        }
+
+        .text {
+            padding: 8px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .bot-text {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .user-text {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: white;
+            border-color: rgba(0, 0, 0, 0.6);
+        }
+
+        #input-container {
+            display: flex;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        #user-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #22385e;
+            color: white;
+            outline: none;
+        }
+
+        #send-btn {
+            background: linear-gradient(to bottom, #57b7ff, #2369aa);
+            border: none;
+            padding: 10px 15px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        #send-btn:hover {
+            opacity: 0.8;
         }
 
         .contract-line {
@@ -118,57 +253,39 @@
             text-align: center;
             margin-bottom: 40px;
         }
-
-        #messages {
-            background: rgba(35, 105, 170, 0.2);
-            border-radius: 10px;
-        }
-
-        .bot-text, .user-text {
-            background: rgba(87, 183, 255, 0.2);
-            color: white;
-        }
-
-        #input-container {
-            background: rgba(87, 183, 255, 0.2);
-        }
-
-        #user-input {
-            background: rgba(35, 105, 170, 0.5);
-        }
-
-        #send-btn {
-            background: #57b7ff;
-            color: white;
-        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1 class="title">ROSEAI</h1>
-        <img src="assets/web_1.gif" alt="AI Animation" class="header-image">
-    </div>
+    <div class="main-container">
+        <div class="left-column">
+            <h1 class="title">ROSEAI</h1>
+            
+            <div class="buttons">
+                <a href="https://telegram.org" target="_blank" class="button-link">
+                    <img src="assets/button_4.png" alt="Telegram">
+                </a>
+                <a href="https://dexscreener.com" target="_blank" class="button-link">
+                    <img src="assets/button_3.png" alt="DexScreener">
+                </a>
+                <a href="https://dextools.io" target="_blank" class="button-link">
+                    <img src="assets/button_2.png" alt="DexTools">
+                </a>
+                <a href="https://x.com" target="_blank" class="button-link">
+                    <img src="assets/button_1.png" alt="X.com">
+                </a>
+            </div>
 
-    <div class="buttons">
-        <a href="https://telegram.org" target="_blank" class="button-link">
-            <img src="assets/button_4.png" alt="Telegram">
-        </a>
-        <a href="https://dexscreener.com" target="_blank" class="button-link">
-            <img src="assets/button_3.png" alt="DexScreener">
-        </a>
-        <a href="https://dextools.io" target="_blank" class="button-link">
-            <img src="assets/button_2.png" alt="DexTools">
-        </a>
-        <a href="https://x.com" target="_blank" class="button-link">
-            <img src="assets/button_1.png" alt="X.com">
-        </a>
-    </div>
+            <div id="chat-container">
+                <div id="messages"></div>
+                <div id="input-container">
+                    <input type="text" id="user-input" placeholder="Enter your message">
+                    <button id="send-btn">Send</button>
+                </div>
+            </div>
+        </div>
 
-    <div id="chat-container">
-        <div id="messages"></div>
-        <div id="input-container">
-            <input type="text" id="user-input" placeholder="Enter your message">
-            <button id="send-btn">Send</button>
+        <div class="right-column">
+            <img src="assets/web_1.gif" alt="AI Animation" class="header-image">
         </div>
     </div>
 
